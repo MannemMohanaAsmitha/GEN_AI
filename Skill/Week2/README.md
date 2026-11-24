@@ -21,7 +21,6 @@ WEEK2/
 ├── test_client.py
 ├── requirements.txt
 ├── .env
-├── Modelfile
 └── README.md
 Installation Steps
 Install Python on your system.
@@ -68,5 +67,6 @@ Output:
 Artificial Intelligence is a technology
 that enables machines to perform tasks
 that normally require human intelligence.
+
 Result
 Successfully developed a provider-agnostic LLM client using Python that supports both Google Gemini API and the locally running Ollama model through a common interface.
