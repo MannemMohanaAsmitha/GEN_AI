@@ -1,149 +1,70 @@
-# ASSIGNMENT 1 – Byte Pair Encoding (BPE) Tokenization
+# Hands-On Python – GPT-2 Next Token Prediction
 
-## 1. Aim
+## Project Description
+This project demonstrates how to use a pretrained GPT-2 language model to predict the next possible words or tokens in a given sentence using Python.
 
-To implement Byte Pair Encoding (BPE) tokenization using Python and understand how frequently occurring character pairs are merged to form larger tokens.
+It uses the Hugging Face Transformers library and PyTorch to load the GPT-2 model, process input text, and calculate the probabilities of the next predicted tokens.
 
-## 2. File Name
+## Technologies Used
+- Python
+- PyTorch
+- Hugging Face Transformers
+- GPT-2 Pretrained Language Model
+- Jupyter Notebook
 
-`ASSIGNMENT1.ipynb`
+## Files in This Project
+**Hans_On_Python.ipynb**
 
-## 3. Description
+This notebook contains the Python implementation of GPT-2 next token prediction.
 
-This assignment demonstrates a simple implementation of BPE tokenization.
+## Working Process
+1. Import PyTorch and Transformers libraries.
+2. Load the pretrained GPT-2 tokenizer and language model.
+3. Provide an input sentence: `Artificial Intelligence is`.
+4. Convert the input sentence into token IDs.
+5. Pass the tokens through the GPT-2 model.
+6. Extract the logits for the last token.
+7. Apply Softmax to calculate prediction probabilities.
+8. Display the top 5 most probable next tokens.
 
-The program takes four words with their frequencies:
+## Sample Output
 
-- low: 5
-- lower: 2
-- newest: 3
-- wildest: 6
-
-Initially, each word is divided into individual characters. The program calculates the frequency of each character and adjacent character pair.
-
-It then calculates a normalized score for every adjacent pair using the formula:
-
-**Score = Pair Frequency / (Frequency of First Token × Frequency of Second Token)**
-
-The pair with the highest score is selected and merged. This process is repeated for five iterations.
-
-Finally, the program displays the resulting tokens and their frequencies.
-
-## 4. Concepts Used
-
-- Natural Language Processing (NLP)
-- Byte Pair Encoding (BPE)
-- Tokenization
-- Character-level Tokenization
-- Pair Frequency
-- Normalized Pair Score
-- Token Merging
-- Python Dictionaries
-- Counter from Collections
-
-## 5. Implementation Steps
-
-1. Import `Counter` from the collections module.
-2. Define four input words with their frequencies.
-3. Split each word into individual characters.
-4. Calculate the frequency of individual tokens.
-5. Calculate the frequency of adjacent character pairs.
-6. Calculate normalized scores for all pairs.
-7. Select the pair with the highest score.
-8. Merge the selected pair in all words.
-9. Repeat the merging process for five iterations.
-10. Display the final tokenization and word frequencies.
-
-## 6. Requirements
-
-- Python 3
-- Jupyter Notebook or Google Colab
-- Python standard library (`collections`)
-
-No external libraries or API keys are required.
-
-## 7. How to Execute
-
-1. Open `ASSIGNMENT1.ipynb` in Jupyter Notebook or Google Colab.
-2. Run the code cell.
-3. Observe the original words and their frequencies.
-4. Check the initial character-level tokenization.
-5. Observe the pair frequencies and normalized scores in each iteration.
-6. Check the selected pair and merging process.
-7. View the final tokenization.
-
-## 8. Program Outputs and Explanation
-
-### Output 1: Original Words
-
-**Purpose:** Displays the input words and their frequencies.
-
-**Output:**
-
+**Input:**
 ```text
-ORIGINAL WORDS:
-low : 5
-lower : 2
-newest : 3
-wildest : 6
+Artificial Intelligence is
 ```
 
-**Explanation:** The program starts with four words. Their frequencies represent how often each word occurs in the input dataset.
-
-### Output 2: Initial Tokenization
-
-**Purpose:** Divides each word into individual characters.
-
-**Output:**
-
+**Top 5 Next Token Predictions:**
 ```text
-INITIAL TOKENIZATION:
-l o w : 5
-l o w e r : 2
-n e w e s t : 3
-w i l d e s t : 6
+'a'   : 14.14%
+'the' : 5.72%
+'not' : 4.16%
+'an'  : 3.73%
+'one' : 2.13%
 ```
 
-**Explanation:** Each word is initially represented as a sequence of individual character tokens. These tokens are used to calculate adjacent pair frequencies.
+*Note: Prediction probabilities may vary depending on the model version and execution environment.*
 
-### Output 3: Pair Frequencies and Scores
+## Installation
 
-**Purpose:** Calculates the frequency and normalized score of each adjacent character pair during every iteration.
+Install the required libraries:
 
-**Explanation:** The program counts how frequently each adjacent pair occurs and calculates its normalized score. The pair with the highest score is selected for merging.
+```bash
+pip install torch transformers
+```
 
-### Output 4: Selected Pair and Merging
+## How to Run
+1. Open the `Hans_On_Python.ipynb` file in Jupyter Notebook or Google Colab.
+2. Install the required libraries.
+3. Run all notebook cells.
+4. View the top 5 next-token predictions.
 
-**Purpose:** Displays the selected character pair and the updated words after merging.
+## Learning Outcomes
+- Understanding pretrained language models.
+- Learning how GPT-2 tokenization works.
+- Understanding logits and Softmax.
+- Calculating next-token prediction probabilities.
+- Working with PyTorch and Hugging Face Transformers.
 
-**Explanation:** In each iteration, the selected pair is combined into a single token wherever that adjacent pair appears. The updated token sequences are used in the next iteration.
-
-The program repeats this process five times.
-
-### Output 5: Final Tokenization
-
-**Purpose:** Displays the final tokens generated after five merging iterations.
-
-**Explanation:** The final output contains:
-
-- Original word.
-- List of tokens after merging.
-- Original word frequency.
-
-This demonstrates how smaller character tokens are combined into larger subword tokens using BPE.
-
-## 9. Learning Outcomes
-
-After completing this assignment, I learned:
-
-- How BPE tokenization works.
-- How to split words into individual characters.
-- How to calculate token and pair frequencies.
-- How to calculate normalized pair scores.
-- How to select the highest-scoring pair.
-- How to merge adjacent tokens.
-- How subword tokenization is performed using Python.
-
-## 10. Conclusion
-
-This assignment successfully implements a simple BPE tokenization algorithm using Python. It demonstrates character-level tokenization, pair-frequency calculation, normalized scoring, and iterative token merging. The experiment helps understand how BPE creates larger subword units from smaller character tokens.
+## Conclusion
+This project provides a basic understanding of how GPT-2 predicts the next token in a sequence. It demonstrates the fundamental working process behind next-token prediction in Generative AI and Large Language Models (LLMs).
